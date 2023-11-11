@@ -18,5 +18,17 @@ app.get('/:room', (req, res)=>{
 
 })
 
+io.on('connection', socket=>{
+    socket.on('join-room', (roomId, userId)=>{
+        socket.join(roomId)
+        socket.to(roomId).emit('user-connected', userId)
+
+        socket.on('disconnect', ()=>{
+            console.log("user disconntected: "+userId)
+            socket.to(roomId).emit("user-disconnected", userId)
+        })
+    })
+})
+
 server.listen(3000)
 
