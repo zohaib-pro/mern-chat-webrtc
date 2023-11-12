@@ -6,7 +6,7 @@ const peer = new Peer(undefined, {
 })
 
 const videoGrid = document.getElementById('video-grid')
-const myVideo = document.createElement('video')
+const myVideo = document.getElementById('myVideo')
 myVideo.muted = true
 
 const peers = {}
@@ -19,7 +19,7 @@ navigator.mediaDevices.getUserMedia({video: true, audio: true})
     peer.on('call', call=>{
         console.log('received a call')
         call.answer(stream)
-        const video = document.createElement('video')
+        const video = document.getElementById("remoteVideo")
         call.on('stream', userVideoStream =>{
             addVideoStream(video, userVideoStream)
         })
@@ -54,7 +54,7 @@ function addVideoStream(video, stream){
         video.play()
     })
 
-    videoGrid.append(video)
+    //videoGrid.append(video)
 }
 
 function connectToNewUser(userId, stream){
