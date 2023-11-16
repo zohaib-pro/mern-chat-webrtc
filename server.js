@@ -24,7 +24,7 @@ io.on('connection', socket=>{
         socket.to(roomId).emit('user-connected', userId)
 
         socket.on('disconnect', ()=>{
-            console.log("user disconntected: "+userId)
+                console.log("user disconntected: "+userId)
             socket.to(roomId).emit("user-disconnected", userId)
         })
     })
