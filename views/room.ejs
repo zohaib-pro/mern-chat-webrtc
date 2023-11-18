@@ -48,6 +48,7 @@
             background: url('imgs/doodles.jpg');
             background-size: 25%;
             border-radius: 1em;
+            border: 1px solid blue;
         }
 
         button {
@@ -100,6 +101,38 @@
             animation: changeColors 4s ease-in-out infinite;
         }
 
+        .chat-container {
+            position: absolute;
+            bottom: 0;
+            right: 1px;
+            width: 200px;
+            height: 400px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        .chat-box {
+            background-color: white;
+            border-radius: 1rem;
+            height: 80%;
+            width: 100%;
+        }
+
+        .chat-input {
+            background-color: white;
+            border-radius: 0.5rem;
+            height: 10%;
+            width: 100%;
+            border: 2px solid red;
+        }
+
+        .chat-input input {
+            border: none;
+            border-radius: 1em;
+            height: 90%;
+        }
+
         @keyframes spin {
             0% {
                 transform: rotate(0deg);
@@ -139,8 +172,13 @@
             <button>Mute</button>
         </div>
 
-        <div class="colorful" style="width: 100px; height: 100px;">
+        <div class="chat-container">
+            <div class="chat-box">
 
+            </div>
+            <div class="chat-input">
+                <input type="text">
+            </div>
         </div>
     </div>
 </body>
